@@ -3,4 +3,5 @@
 # High School: MTU
  * level) 2
  * theme) algorithms & data structures
- * KR) C++ 
+ * KR) show skills and get pass mark
+ * Realize) C++
