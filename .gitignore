@@ -1,0 +1,6 @@
+# Ignore List
+
+*.exe
+Debug/*
+.vs/*
+Algorithm/Debug/*
