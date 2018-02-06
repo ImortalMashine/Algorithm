@@ -136,6 +136,7 @@
   <ItemGroup>
     <ClCompile Include="infoform.cpp" />
     <ClCompile Include="mainform.cpp" />
+    <ClCompile Include="table.cpp" />
     <ClCompile Include="tableform.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,13 +146,20 @@
     <ClInclude Include="mainform.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="table.h" />
     <ClInclude Include="tableform.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="infoform.resx">
+      <DependentUpon>infoform.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainform.resx">
       <DependentUpon>mainform.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tableform.resx">
+      <DependentUpon>tableform.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

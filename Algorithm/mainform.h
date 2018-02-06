@@ -186,6 +186,7 @@ namespace Algorithm {
 			this->doInfo->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->doInfo->Name = L"doInfo";
 			this->doInfo->Size = System::Drawing::Size(24, 24);
+			this->doInfo->Click += gcnew System::EventHandler(this, &mainform::doInfo_Click);
 			// 
 			// initbox
 			// 
@@ -594,6 +595,10 @@ namespace Algorithm {
 	private: System::Void showTable_Click(System::Object^  sender, System::EventArgs^  e) {
 		tableform^tb = gcnew tableform();
 		tb->ShowDialog();
+	}
+	private: System::Void doInfo_Click(System::Object^  sender, System::EventArgs^  e) {
+		infoform^inf = gcnew infoform();
+		inf->ShowDialog();
 	}
 };
 }
