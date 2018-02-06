@@ -1,4 +1,6 @@
 #include "mainform.h"
+#include "tableform.h"
+#include "infoform.h"
 
 using namespace System;
 using namespace System::ComponentModel;

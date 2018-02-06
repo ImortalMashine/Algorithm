@@ -1,4 +1,6 @@
 #pragma once
+#include "tableform.h"
+#include "infoform.h"
 
 namespace Algorithm {
 
@@ -76,7 +78,7 @@ namespace Algorithm {
 
 
 	private: System::Windows::Forms::Button^  doDefault;
-	private: System::Windows::Forms::TextBox^  timesMax;
+
 
 
 	private: System::Windows::Forms::Button^  doSave;
@@ -99,6 +101,12 @@ namespace Algorithm {
 
 
 	private: System::Windows::Forms::Label^  tagResINIT;
+	private: System::Windows::Forms::ComboBox^  selectNUMBER;
+	private: System::Windows::Forms::Label^  showDATE;
+	private: System::Windows::Forms::Label^  tagDATE;
+	private: System::Windows::Forms::Label^  tagNUMBER;
+	private: System::Windows::Forms::ComboBox^  comboBox1;
+
 
 
 
@@ -124,7 +132,7 @@ namespace Algorithm {
 			this->menutoolbar = (gcnew System::Windows::Forms::ToolStrip());
 			this->doInfo = (gcnew System::Windows::Forms::ToolStripButton());
 			this->initbox = (gcnew System::Windows::Forms::GroupBox());
-			this->timesMax = (gcnew System::Windows::Forms::TextBox());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->tagT = (gcnew System::Windows::Forms::Label());
 			this->doClean = (gcnew System::Windows::Forms::Button());
 			this->doStop = (gcnew System::Windows::Forms::Button());
@@ -143,6 +151,10 @@ namespace Algorithm {
 			this->doDownload = (gcnew System::Windows::Forms::Button());
 			this->graphDesk = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->showpanel = (gcnew System::Windows::Forms::Panel());
+			this->showDATE = (gcnew System::Windows::Forms::Label());
+			this->tagDATE = (gcnew System::Windows::Forms::Label());
+			this->tagNUMBER = (gcnew System::Windows::Forms::Label());
+			this->selectNUMBER = (gcnew System::Windows::Forms::ComboBox());
 			this->doGraph = (gcnew System::Windows::Forms::Button());
 			this->showTable = (gcnew System::Windows::Forms::Button());
 			this->resultpanel = (gcnew System::Windows::Forms::Panel());
@@ -177,7 +189,8 @@ namespace Algorithm {
 			// 
 			// initbox
 			// 
-			this->initbox->Controls->Add(this->timesMax);
+			this->initbox->AutoSize = true;
+			this->initbox->Controls->Add(this->comboBox1);
 			this->initbox->Controls->Add(this->tagT);
 			this->initbox->Controls->Add(this->doClean);
 			this->initbox->Controls->Add(this->doStop);
@@ -190,17 +203,21 @@ namespace Algorithm {
 				static_cast<System::Byte>(0)));
 			this->initbox->Location = System::Drawing::Point(12, 41);
 			this->initbox->Name = L"initbox";
-			this->initbox->Size = System::Drawing::Size(341, 144);
+			this->initbox->Size = System::Drawing::Size(341, 159);
 			this->initbox->TabIndex = 1;
 			this->initbox->TabStop = false;
 			this->initbox->Text = L"Settings";
 			// 
-			// timesMax
+			// comboBox1
 			// 
-			this->timesMax->Location = System::Drawing::Point(38, 69);
-			this->timesMax->Name = L"timesMax";
-			this->timesMax->Size = System::Drawing::Size(176, 27);
-			this->timesMax->TabIndex = 8;
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"1", L"2", L"3", L"4", L"5" });
+			this->comboBox1->Location = System::Drawing::Point(41, 64);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->comboBox1->Size = System::Drawing::Size(176, 28);
+			this->comboBox1->TabIndex = 8;
+			this->comboBox1->Text = L"repeat number";
 			// 
 			// tagT
 			// 
@@ -246,7 +263,7 @@ namespace Algorithm {
 			// 
 			// sizeMax
 			// 
-			this->sizeMax->Location = System::Drawing::Point(38, 34);
+			this->sizeMax->Location = System::Drawing::Point(41, 34);
 			this->sizeMax->Name = L"sizeMax";
 			this->sizeMax->Size = System::Drawing::Size(176, 27);
 			this->sizeMax->TabIndex = 3;
@@ -283,6 +300,8 @@ namespace Algorithm {
 			// 
 			// progressbox
 			// 
+			this->progressbox->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->progressbox->AutoSize = true;
 			this->progressbox->Controls->Add(this->doSave);
 			this->progressbox->Controls->Add(this->doDefault);
 			this->progressbox->Controls->Add(this->showTime);
@@ -294,7 +313,7 @@ namespace Algorithm {
 				static_cast<System::Byte>(0)));
 			this->progressbox->Location = System::Drawing::Point(12, 191);
 			this->progressbox->Name = L"progressbox";
-			this->progressbox->Size = System::Drawing::Size(341, 173);
+			this->progressbox->Size = System::Drawing::Size(341, 172);
 			this->progressbox->TabIndex = 2;
 			this->progressbox->TabStop = false;
 			this->progressbox->Text = L"Test state";
@@ -380,6 +399,7 @@ namespace Algorithm {
 			// 
 			// graphDesk
 			// 
+			this->graphDesk->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->graphDesk->BackColor = System::Drawing::SystemColors::ControlLight;
 			chartArea1->BackColor = System::Drawing::SystemColors::ControlLight;
 			chartArea1->Name = L"ChartArea1";
@@ -395,9 +415,11 @@ namespace Algorithm {
 			this->graphDesk->Location = System::Drawing::Point(359, 41);
 			this->graphDesk->Name = L"graphDesk";
 			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
 			series1->Legend = L"infoGraph";
 			series1->Name = L"Initilize";
 			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
 			series2->Legend = L"infoGraph";
 			series2->Name = L"Sorting";
 			this->graphDesk->Series->Add(series1);
@@ -408,12 +430,55 @@ namespace Algorithm {
 			// 
 			// showpanel
 			// 
+			this->showpanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->showpanel->AutoSize = true;
+			this->showpanel->Controls->Add(this->showDATE);
+			this->showpanel->Controls->Add(this->tagDATE);
+			this->showpanel->Controls->Add(this->tagNUMBER);
+			this->showpanel->Controls->Add(this->selectNUMBER);
 			this->showpanel->Controls->Add(this->doGraph);
 			this->showpanel->Controls->Add(this->showTable);
-			this->showpanel->Location = System::Drawing::Point(12, 370);
+			this->showpanel->Location = System::Drawing::Point(12, 343);
 			this->showpanel->Name = L"showpanel";
-			this->showpanel->Size = System::Drawing::Size(341, 71);
+			this->showpanel->Size = System::Drawing::Size(341, 98);
 			this->showpanel->TabIndex = 4;
+			// 
+			// showDATE
+			// 
+			this->showDATE->AutoSize = true;
+			this->showDATE->Location = System::Drawing::Point(193, 60);
+			this->showDATE->Name = L"showDATE";
+			this->showDATE->Size = System::Drawing::Size(42, 17);
+			this->showDATE->TabIndex = 5;
+			this->showDATE->Text = L"None";
+			// 
+			// tagDATE
+			// 
+			this->tagDATE->AutoSize = true;
+			this->tagDATE->Location = System::Drawing::Point(124, 59);
+			this->tagDATE->Name = L"tagDATE";
+			this->tagDATE->Size = System::Drawing::Size(46, 17);
+			this->tagDATE->TabIndex = 4;
+			this->tagDATE->Text = L"Date :";
+			// 
+			// tagNUMBER
+			// 
+			this->tagNUMBER->AutoSize = true;
+			this->tagNUMBER->Location = System::Drawing::Point(124, 26);
+			this->tagNUMBER->Name = L"tagNUMBER";
+			this->tagNUMBER->Size = System::Drawing::Size(66, 17);
+			this->tagNUMBER->TabIndex = 3;
+			this->tagNUMBER->Text = L"Number :";
+			// 
+			// selectNUMBER
+			// 
+			this->selectNUMBER->FormattingEnabled = true;
+			this->selectNUMBER->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"1", L"2", L"3", L"4", L"5" });
+			this->selectNUMBER->Location = System::Drawing::Point(196, 23);
+			this->selectNUMBER->Name = L"selectNUMBER";
+			this->selectNUMBER->Size = System::Drawing::Size(128, 24);
+			this->selectNUMBER->TabIndex = 2;
+			this->selectNUMBER->Text = L"graph number";
 			// 
 			// doGraph
 			// 
@@ -421,7 +486,7 @@ namespace Algorithm {
 			this->doGraph->Font = (gcnew System::Drawing::Font(L"Perpetua", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->doGraph->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->doGraph->Location = System::Drawing::Point(165, 25);
+			this->doGraph->Location = System::Drawing::Point(12, 54);
 			this->doGraph->Name = L"doGraph";
 			this->doGraph->Size = System::Drawing::Size(98, 26);
 			this->doGraph->TabIndex = 1;
@@ -434,15 +499,18 @@ namespace Algorithm {
 			this->showTable->Font = (gcnew System::Drawing::Font(L"Perpetua", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->showTable->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->showTable->Location = System::Drawing::Point(61, 25);
+			this->showTable->Location = System::Drawing::Point(12, 22);
 			this->showTable->Name = L"showTable";
 			this->showTable->Size = System::Drawing::Size(98, 26);
 			this->showTable->TabIndex = 0;
 			this->showTable->Text = L"Table";
 			this->showTable->UseVisualStyleBackColor = false;
+			this->showTable->Click += gcnew System::EventHandler(this, &mainform::showTable_Click);
 			// 
 			// resultpanel
 			// 
+			this->resultpanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->resultpanel->AutoSize = true;
 			this->resultpanel->Controls->Add(this->timeSORT);
 			this->resultpanel->Controls->Add(this->tagResSORT);
 			this->resultpanel->Controls->Add(this->timeINIT);
@@ -502,7 +570,6 @@ namespace Algorithm {
 			this->Controls->Add(this->progressbox);
 			this->Controls->Add(this->initbox);
 			this->Controls->Add(this->menutoolbar);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"mainform";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
@@ -515,6 +582,7 @@ namespace Algorithm {
 			this->progressbox->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->graphDesk))->EndInit();
 			this->showpanel->ResumeLayout(false);
+			this->showpanel->PerformLayout();
 			this->resultpanel->ResumeLayout(false);
 			this->resultpanel->PerformLayout();
 			this->ResumeLayout(false);
@@ -523,5 +591,9 @@ namespace Algorithm {
 		}
 #pragma endregion
 
+	private: System::Void showTable_Click(System::Object^  sender, System::EventArgs^  e) {
+		tableform^tb = gcnew tableform();
+		tb->ShowDialog();
+	}
 };
 }

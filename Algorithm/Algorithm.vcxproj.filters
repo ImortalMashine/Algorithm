@@ -18,10 +18,27 @@
     <ClCompile Include="mainform.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="tableform.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="infoform.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainform.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="tableform.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="infoform.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="mainform.resx">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

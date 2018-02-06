@@ -134,10 +134,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="infoform.cpp" />
     <ClCompile Include="mainform.cpp" />
+    <ClCompile Include="tableform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="infoform.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="mainform.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="tableform.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
