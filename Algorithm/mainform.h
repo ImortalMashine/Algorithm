@@ -274,9 +274,9 @@ namespace Algorithm {
 			this->actSort->AutoSize = true;
 			this->actSort->Location = System::Drawing::Point(127, 109);
 			this->actSort->Name = L"actSort";
-			this->actSort->Size = System::Drawing::Size(87, 24);
+			this->actSort->Size = System::Drawing::Size(84, 24);
 			this->actSort->TabIndex = 2;
-			this->actSort->Text = L"Add Sort";
+			this->actSort->Text = L"Use Sort";
 			this->actSort->UseVisualStyleBackColor = true;
 			// 
 			// actRandom
