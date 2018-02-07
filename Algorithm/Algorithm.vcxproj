@@ -137,7 +137,7 @@
     <ClCompile Include="dataset.cpp" />
     <ClCompile Include="infoform.cpp" />
     <ClCompile Include="mainform.cpp" />
-    <ClCompile Include="table.cpp" />
+    <ClCompile Include="dataitem.cpp" />
     <ClCompile Include="tableform.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -148,7 +148,7 @@
     <ClInclude Include="mainform.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="table.h" />
+    <ClInclude Include="dataitem.h" />
     <ClInclude Include="tableform.h">
       <FileType>CppForm</FileType>
     </ClInclude>

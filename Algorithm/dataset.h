@@ -1,8 +1,8 @@
 #pragma once
-ref class dataset : public table
+ref class dataset : public dataitem
 {
 private:
-	datatime** list;	// array of datatime
+	datatime * * list;	// array of datatime
 	int* size;			//	lenghth
 
 public:
