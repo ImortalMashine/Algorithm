@@ -12,7 +12,7 @@ typedef struct datatime {
 	}
 } datatime;
 
-ref class table
+ref class dataitem
 {
 private:
 	datatime* init_time;
@@ -21,11 +21,10 @@ protected:
 	virtual char* atos(int*);
 	virtual datatime* calcTime(int*);
 public:
-	table();
-	virtual ~table();
+	dataitem(int*);
+	virtual ~dataitem();
 	void setInit(int*);
 	void setSort(int*);
 	char* getInit();
 	char* getSort();
 };
-

@@ -1,17 +1,18 @@
-#include "table.h"
+#include "dataitem.h"
 #include <string>
 
 //
 // Constructor & Destructor
 //
-table::table()
+dataitem::dataitem(int* value)
 {
 	//	Dynamic memory 
 	init_time = new datatime;
 	sort_time = new datatime;
+	calcTime(value); // put data
 }
 
-table::~table()
+dataitem::~dataitem()
 {
 	// Clear Memory
 	delete init_time;
@@ -21,17 +22,17 @@ table::~table()
 //
 //	Methods
 //
-void table::setInit(int* value) {
+void dataitem::setInit(int* value) {
 	if (value != NULL)
 		init_time = calcTime(value); // put data
 };
 
-void table::setSort(int* value) {
+void dataitem::setSort(int* value) {
 	if (value != NULL)
 		sort_time = calcTime(value); // put data
 };
 
-char* table::getInit() {
+char* dataitem::getInit() {
 	char* temp;
 	strcpy(temp, (atos(&init_time->h) + ':') );	//	hour
 	strcat(temp, (atos(&init_time->m) + ':') );	//	min
@@ -39,7 +40,7 @@ char* table::getInit() {
 	return temp;
 };
 
-char* table::getSort() {
+char* dataitem::getSort() {
 	char* temp;
 	strcpy(temp, (atos(&sort_time->h) + ':'));	//	hour
 	strcat(temp, (atos(&sort_time->m) + ':'));	//	min
@@ -47,13 +48,13 @@ char* table::getSort() {
 	return temp;
 };
 
-char* table::atos(int* value) {
+char* dataitem::atos(int* value) {
 	char* temp;
 	itoa(*value, temp, 10);	//	convert int to char* (int,char,typecont: 10, hex, bin)
 	return temp;
 };
 
-datatime* table::calcTime(int* value) {
+datatime* dataitem::calcTime(int* value) {
 	datatime buffer;
 	datatime* p = &buffer;
 /*	
