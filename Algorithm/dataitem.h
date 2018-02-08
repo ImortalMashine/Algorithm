@@ -12,19 +12,20 @@ typedef struct datatime {
 	}
 } datatime;
 
-ref class dataitem
+typedef class dataitem
 {
 private:
 	datatime* init_time;
 	datatime* sort_time;
 protected:
-	virtual char* atos(int*);
-	virtual datatime* calcTime(int*);
+	virtual char* atos(int*,char*);
+	virtual dataitem* calcTime(int*,bool);
 public:
-	dataitem(int*);
+	dataitem();
+	dataitem(int*, bool);
+	dataitem* init(int*, bool);
+	dataitem* init();
 	virtual ~dataitem();
-	void setInit(int*);
-	void setSort(int*);
 	char* getInit();
 	char* getSort();
-};
+} dataitem;

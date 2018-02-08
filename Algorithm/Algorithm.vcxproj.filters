@@ -24,10 +24,10 @@
     <ClCompile Include="infoform.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="dataset.cpp">
+    <ClCompile Include="dataitem.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="dataitem.cpp">
+    <ClCompile Include="dataset.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,10 +41,10 @@
     <ClInclude Include="infoform.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="dataset.h">
+    <ClInclude Include="dataitem.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="dataitem.h">
+    <ClInclude Include="dataset.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

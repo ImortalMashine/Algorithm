@@ -1,12 +1,13 @@
 #pragma once
-ref class dataset : public dataitem
+#include "dataitem.h"
+
+typedef class dataset : public dataitem
 {
 private:
-	datatime * * list;	// array of datatime
+	dataitem * * list;	// array of datatime
 	int* size;			//	lenghth
-
 public:
-	dataset();
+	dataset(int*);
 	virtual ~dataset();
-};
+} dataset;
 
