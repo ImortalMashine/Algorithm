@@ -1,51 +1,111 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Исходные файлы">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Файлы заголовков">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Файлы ресурсов">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Библиотека">
+      <UniqueIdentifier>{8e15836b-2060-4e00-a905-024712720c3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Задача">
+      <UniqueIdentifier>{1ebf7c69-23a9-49dc-ac7a-35c9eed9e9a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Задача\Файлы заголовков">
+      <UniqueIdentifier>{e2cd6d27-0e9d-4320-a544-4693fc39763f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Задача\Исходные файлы">
+      <UniqueIdentifier>{114dbdca-8e10-4212-b8d6-9d2474a6bb13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Библиотека\Сеанс">
+      <UniqueIdentifier>{39135f90-2cea-44a0-b461-070b36cf7c27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Библиотека\Сеанс\Файлы заголовков">
+      <UniqueIdentifier>{a098f875-aa78-4762-ab4b-4397e43604a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Библиотека\Сеанс\Исходные файлы">
+      <UniqueIdentifier>{5fed4b3c-c5e0-4bd9-8724-2fbc71810e12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Библиотека\Модуль">
+      <UniqueIdentifier>{68d316a0-798a-421d-b281-68c408bc667b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Библиотека\Модуль\Исходные файлы">
+      <UniqueIdentifier>{705f7e2e-eeed-4abc-a81d-7c2bdb9158ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Библиотека\Модуль\Файлы заголовков">
+      <UniqueIdentifier>{ac4eb28f-3ea5-4329-af71-ad26db23aabb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Форма">
+      <UniqueIdentifier>{f8b71f16-5e3a-4b6b-bed5-2c620ef1c923}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Форма\Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Форма\Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Форма\Main">
+      <UniqueIdentifier>{bac5bfe5-8c1a-4389-98ef-8429eb19b9f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mainform.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="tableform.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Форма\Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="infoform.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Форма\Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="dataitem.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="clock.cpp">
+      <Filter>Библиотека\Модуль\Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="dataset.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Queline.cpp">
+      <Filter>Задача\Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="clocktime.cpp">
+      <Filter>Библиотека\Модуль\Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeItem.cpp">
+      <Filter>Библиотека\Модуль\Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerTake.cpp">
+      <Filter>Библиотека\Модуль\Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Session.cpp">
+      <Filter>Библиотека\Сеанс\Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="mainform.cpp">
+      <Filter>Форма\Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainform.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Форма\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="tableform.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Форма\Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="infoform.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Форма\Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="dataitem.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="clock.h">
+      <Filter>Библиотека\Модуль\Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="dataset.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="Queline.h">
+      <Filter>Задача\Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="clocktime.h">
+      <Filter>Библиотека\Модуль\Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeItem.h">
+      <Filter>Библиотека\Модуль\Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerTake.h">
+      <Filter>Библиотека\Модуль\Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>Библиотека\Сеанс\Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -134,24 +134,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dataset.cpp" />
+    <ClCompile Include="clock.cpp" />
+    <ClCompile Include="clocktime.cpp" />
     <ClCompile Include="infoform.cpp" />
     <ClCompile Include="mainform.cpp" />
-    <ClCompile Include="dataitem.cpp" />
+    <ClCompile Include="Queline.cpp" />
+    <ClCompile Include="Session.cpp" />
     <ClCompile Include="tableform.cpp" />
+    <ClCompile Include="TimeItem.cpp" />
+    <ClCompile Include="TimerTake.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="dataset.h" />
+    <ClInclude Include="clock.h" />
+    <ClInclude Include="clocktime.h" />
     <ClInclude Include="infoform.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="mainform.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="dataitem.h" />
+    <ClInclude Include="Queline.h" />
+    <ClInclude Include="Session.h" />
     <ClInclude Include="tableform.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="TimeItem.h" />
+    <ClInclude Include="TimerTake.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="infoform.resx">
