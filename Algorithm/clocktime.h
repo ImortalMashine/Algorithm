@@ -14,6 +14,8 @@ public:
 	clock * start;
 	clock* diff; // difference
 	clock* end;
+	clock* max;
+	clock* min;
 	clocktime();
 	virtual ~clocktime();
 } clocktime;
