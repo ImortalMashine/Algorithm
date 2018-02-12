@@ -282,6 +282,7 @@ namespace Algorithm {
 			// actRandom
 			// 
 			this->actRandom->AutoSize = true;
+			this->actRandom->Enabled = false;
 			this->actRandom->Location = System::Drawing::Point(9, 109);
 			this->actRandom->Name = L"actRandom";
 			this->actRandom->Size = System::Drawing::Size(110, 24);
