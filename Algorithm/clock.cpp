@@ -44,7 +44,7 @@ int clock::isZero()
 clock* clock::operator- (clock* arg)
 {
 // use abs() for detect session with -time
-	if (this != NULL && this->isZero) {
+	if (this != NULL && this->isZero()) {
 		clock* temp = this; // ! this != old this use temp
 		this->h = abs( temp->h - arg->h );
 		this->m = abs( temp->m - arg->m );
