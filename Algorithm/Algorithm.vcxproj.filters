@@ -8,15 +8,6 @@
     <Filter Include="Библиотека">
       <UniqueIdentifier>{8e15836b-2060-4e00-a905-024712720c3d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Задача">
-      <UniqueIdentifier>{1ebf7c69-23a9-49dc-ac7a-35c9eed9e9a6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Задача\Файлы заголовков">
-      <UniqueIdentifier>{e2cd6d27-0e9d-4320-a544-4693fc39763f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Задача\Исходные файлы">
-      <UniqueIdentifier>{114dbdca-8e10-4212-b8d6-9d2474a6bb13}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Библиотека\Сеанс">
       <UniqueIdentifier>{39135f90-2cea-44a0-b461-070b36cf7c27}</UniqueIdentifier>
     </Filter>
@@ -48,6 +39,15 @@
     </Filter>
     <Filter Include="Форма\Main">
       <UniqueIdentifier>{bac5bfe5-8c1a-4389-98ef-8429eb19b9f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Задача">
+      <UniqueIdentifier>{1ebf7c69-23a9-49dc-ac7a-35c9eed9e9a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Задача\Файлы заголовков">
+      <UniqueIdentifier>{e2cd6d27-0e9d-4320-a544-4693fc39763f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Задача\Исходные файлы">
+      <UniqueIdentifier>{114dbdca-8e10-4212-b8d6-9d2474a6bb13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
