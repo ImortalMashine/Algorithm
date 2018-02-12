@@ -3,8 +3,49 @@
 //
 // Constructor & Destructor
 //
-TimeItem::TimeItem()
+TimeItem::TimeItem(int* N, bool useSort) : Queline(N)
 {
+	item_init = new clocktime();
+	item_sort = new clocktime();
+/*
+	if (useSort) {
+		//double begin, end;
+		//double max, min, temp;
+		//begin = end = 0;
+		//max = min = temp = 0;
+
+		//std::chrono::time_point<std::chrono::system_clock> func_start, func_end;
+		//	func_start = std::chrono::system_clock::now(); // max min time tick
+		Queline* Obj = new Queline(N);
+		//	func_end = std::chrono::system_clock::now(); // max min time tick
+		//temp = std::chrono::duration_cast<std::chrono::second>(func_end - func_start).count();
+		
+		//min = std::chrono::duration(std::chrono::duration_values<rep>::min())
+
+
+		this->setInit(&begin);
+		this->setEndInit(&end);
+		this->calcDiff(true);
+
+		begin = end = 0;
+		
+		Obj->sortSHELL();
+	}
+	else {
+		double begin, end, max, min, temp;
+		begin = end = max = min = temp = 0;
+
+		clock_t start = std::clock();
+			Queline* Obj = new Queline(N);
+		clock_t stop = std::clock();
+		begin = start / CLOCKS_PER_SEC;
+		end = stop / CLOCKS_PER_SEC;
+
+		this->setInit(&begin);
+		this->setEndInit(&end);
+		this->calcDiff(true);
+	};
+*/
 };
 
 TimeItem::~TimeItem()
@@ -25,7 +66,7 @@ char* TimeItem::atos(double* arg, char* buffer)
 	return buffer;
 };
 
-void TimeItem::calcTime(char* c, double* value, int* switchkey)
+void TimeItem::calcTime(char c, double* value, bool key)
 {
 	/*
 	timer count milisec
@@ -33,9 +74,9 @@ void TimeItem::calcTime(char* c, double* value, int* switchkey)
 	1 min = 60 sec
 	1 hour = 3600 sec
 	*/
-	if (value != NULL && c != NULL && switchkey != NULL) {
-		if (*c == 's') {
-			if (switchkey) {
+	if (value != NULL && c != NULL) {
+		if (c == 's') {
+			if (key) {
 				// start init time
 				this->item_init->start->setTime(value);
 			}
@@ -44,8 +85,8 @@ void TimeItem::calcTime(char* c, double* value, int* switchkey)
 				this->item_sort->start->setTime(value);
 			}
 		}
-		if (*c == 'e') {
-			if (switchkey) {
+		if (c == 'e') {
+			if (key) {
 				// end init time
 				this->item_init->end->setTime(value);
 			}
@@ -57,10 +98,10 @@ void TimeItem::calcTime(char* c, double* value, int* switchkey)
 	}
 };
 
-void TimeItem::calcDiff(int* switchkey)
+void TimeItem::calcDiff(bool init)
 {
 	if (this != NULL) {
-		if (switchkey) {
+		if (init) {
 			clock* temp = this->item_init->diff;
 			// init time diff
 			temp->operator= (this->item_init->end->operator-(this->item_init->start));
@@ -73,11 +114,11 @@ void TimeItem::calcDiff(int* switchkey)
 	}
 };
 
-void TimeItem::calcDiff(double* value, int* switchkey)
+void TimeItem::calcDiff(double* value, bool key)
 {
 	// diff will precount in type count(hour,min,sec, ect) by extern function
 	if (this != NULL)
-		if (switchkey)
+		if (key)
 			this->item_init->diff->setTime(value);
 		else
 			this->item_sort->diff->setTime(value);
@@ -87,8 +128,10 @@ void TimeItem::calcDiff(double* value, int* switchkey)
 
 
 //	INIT
-void TimeItem::setInit()
+void TimeItem::setInit(double* value)
 {
+	if (this != NULL && value != NULL)
+		this->item_init->start->setTime(value);
 };
 
 clocktime* TimeItem::GetI()
@@ -96,36 +139,42 @@ clocktime* TimeItem::GetI()
 	return this->item_init;
 };
 
-void TimeItem::setEndInit()
+void TimeItem::setEndInit(double* value)
 {
+	if (this != NULL && value != NULL)
+		this->item_init->end->setTime(value);
 };
 
-char* TimeItem::getInit(char* temp)
+char* TimeItem::getInit(char* line)
 {
 	if (this != NULL) {
+		char temp[] = "";
 		char buffer[] = "";
-		strncpy_s(temp, (atos(&this->item_init->start->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
-		strncat_s(temp, (atos(&this->item_init->start->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
-		strncat_s(temp, atos(&this->item_init->start->s, buffer), sizeof(buffer));				//	sec
-		return temp;
+		strncpy_s(temp, (atos(&(this->item_init->start->h), buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_init->start->m, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_init->start->s, buffer), (unsigned int)sizeof(buffer));				//	sec
+		return line = temp;
 	}
 };
 
-char* TimeItem::getEndInit(char* temp)
+char* TimeItem::getEndInit(char* line)
 {	
 	if (this != NULL) {
+		char temp[] = "";
 		char buffer[] = "";
-		strncpy_s(temp, (atos(&this->item_init->end->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
-		strncat_s(temp, (atos(&this->item_init->end->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
-		strncat_s(temp, atos(&this->item_init->end->s, buffer), sizeof(buffer));				//	sec
-		return temp;
+		strncpy_s(temp, (atos(&this->item_init->end->h, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_init->end->m, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_init->end->s, buffer), (unsigned int)sizeof(buffer));				//	sec
+		return line = temp;
 	}
 };
 
 
 //	SORT
-void TimeItem::setSort()
+void TimeItem::setSort(double* value)
 {
+	if (this != NULL && value != NULL)
+		this->item_sort->start->setTime(value);
 };
 
 clocktime* TimeItem::GetS()
@@ -133,52 +182,58 @@ clocktime* TimeItem::GetS()
 	return this->item_sort;
 };
 
-void TimeItem::setEndSort()
+void TimeItem::setEndSort(double* value)
 {
+	if (this != NULL && value != NULL)
+		this->item_sort->end->setTime(value);
 };
 
-char* TimeItem::getSort(char* temp)
+char* TimeItem::getSort(char* line)
 {
 	if (this != NULL) {
+		char temp[] = "";
 		char buffer[] = "";
-		strncpy_s(temp, (atos(&this->item_sort->start->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
-		strncat_s(temp, (atos(&this->item_sort->start->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
-		strncat_s(temp, atos(&this->item_sort->start->s, buffer), sizeof(buffer));				//	sec
-		return temp;
+		strncpy_s(temp, (atos(&this->item_sort->start->h, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_sort->start->m, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_sort->start->s, buffer), (unsigned int)sizeof(buffer));				//	sec
+		return line = temp;
 	}
 };
 
-char* TimeItem::getEndSort(char* temp)
+char* TimeItem::getEndSort(char* line)
 {
 	if (this != NULL) {
+		char temp[] = "";
 		char buffer[] = "";
-		strncpy_s(temp, (atos(&this->item_sort->end->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
-		strncat_s(temp, (atos(&this->item_sort->end->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
-		strncat_s(temp, atos(&this->item_sort->end->s, buffer), sizeof(buffer));				//	sec
-		return temp;
+		strncpy_s(temp, (atos(&this->item_sort->end->h, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_sort->end->m, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_sort->end->s, buffer), (unsigned int)sizeof(buffer));				//	sec
+		return line = temp;
 	}
 };
 
 
 //	DIFF
-char* TimeItem::getDiffInit(char* temp)
+char* TimeItem::getDiffInit(char* line)
 {
 	if (this != NULL) {
+		char temp[] = "";
 		char buffer[] = "";
-		strncpy_s(temp, (atos(&this->item_init->diff->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
-		strncat_s(temp, (atos(&this->item_init->diff->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
-		strncat_s(temp, atos(&this->item_init->diff->s, buffer), sizeof(buffer));				//	sec
-		return temp;
+		strncpy_s(temp, (atos(&this->item_init->diff->h, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_init->diff->m, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_init->diff->s, buffer), (unsigned int)sizeof(buffer));				//	sec
+		return line = temp;
 	}
 };
 
-char* TimeItem::getDiffSort(char* temp)
+char* TimeItem::getDiffSort(char* line)
 {
 	if (this != NULL) {
+		char temp[] = "";
 		char buffer[] = "";
-		strncpy_s(temp, (atos(&this->item_sort->diff->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
-		strncat_s(temp, (atos(&this->item_sort->diff->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
-		strncat_s(temp, atos(&this->item_sort->diff->s, buffer), sizeof(buffer));				//	sec
-		return temp;
+		strncpy_s(temp, (atos(&this->item_sort->diff->h, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_sort->diff->m, buffer) + ':'), (unsigned int)(sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_sort->diff->s, buffer), (unsigned int)sizeof(buffer));				//	sec
+		return line = temp;
 	}
 };
