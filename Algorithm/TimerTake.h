@@ -5,11 +5,10 @@ typedef class TimerTake : public TimeItem
 {
 private:
 	char* timenow;
-	clocktime * * item_init;
-	clocktime * * item_sort;
+	TimeItem** list;
 	int size;
 public:
-	TimerTake();
+	TimerTake(int,int,bool);
 	virtual ~TimerTake();
-	clocktime* operator[](int*);
+	TimeItem* operator[](int*);
 } TimerTake;
