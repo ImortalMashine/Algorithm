@@ -1,5 +1,7 @@
 #pragma once
 #include <cstdlib>
+#include <chrono>
+#include <ctime>
 
 typedef struct TNode
 {
@@ -18,14 +20,16 @@ typedef struct TNode
 typedef class Queline : public TNode
 {
 private:
-	TNode * head;
+	TNode* head;
 	TNode* tail;
 public:
 	Queline(int*);
 	~Queline();
+	void sortSHELL();
 	int isEmpty();
 	void cleanALL(TNode*);
 	void add(int*);
+	int getLen();
 	TNode& operator[] (int);
 	TNode* getH();
 	TNode* getT();

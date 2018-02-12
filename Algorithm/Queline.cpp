@@ -9,9 +9,8 @@ Queline::Queline(int* size)
 {
 	srand((unsigned int)100); // generator init
 	int R = 1 + rand() % 1000;
-	for (int i = 0; i < *size; i++)
-		this->add(&R);
-
+		for (int i = 0; i < *size; i++)
+			this->add(&R);
 };
 
 Queline::~Queline()
