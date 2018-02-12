@@ -16,9 +16,13 @@ TimeItem::~TimeItem()
 //
 
 //	PROTECTED
-char* TimeItem::atos(clock*, char*)
+char* TimeItem::atos(double* arg, char* buffer)
 {
-
+	if (buffer != NULL && arg != NULL) {
+		int syscount = 10; //	typecont: decimal, hex, bin, oct
+		_itoa_s((int)arg, buffer, sizeof(buffer), syscount);	//	convert int to char* C++11
+	}
+	return buffer;
 };
 
 void TimeItem::calcTime(char* c, double* value, int* switchkey)
@@ -96,13 +100,26 @@ void TimeItem::setEndInit()
 {
 };
 
-char* TimeItem::getInit()
+char* TimeItem::getInit(char* temp)
 {
-	return this->
+	if (this != NULL) {
+		char buffer[] = "";
+		strncpy_s(temp, (atos(&this->item_init->start->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_init->start->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_init->start->s, buffer), sizeof(buffer));				//	sec
+		return temp;
+	}
 };
 
-char* TimeItem::getEndInit()
-{
+char* TimeItem::getEndInit(char* temp)
+{	
+	if (this != NULL) {
+		char buffer[] = "";
+		strncpy_s(temp, (atos(&this->item_init->end->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_init->end->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_init->end->s, buffer), sizeof(buffer));				//	sec
+		return temp;
+	}
 };
 
 
@@ -120,24 +137,48 @@ void TimeItem::setEndSort()
 {
 };
 
-char* TimeItem::getSort()
+char* TimeItem::getSort(char* temp)
 {
+	if (this != NULL) {
+		char buffer[] = "";
+		strncpy_s(temp, (atos(&this->item_sort->start->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_sort->start->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_sort->start->s, buffer), sizeof(buffer));				//	sec
+		return temp;
+	}
 };
 
-char* TimeItem::getEndSort()
+char* TimeItem::getEndSort(char* temp)
 {
+	if (this != NULL) {
+		char buffer[] = "";
+		strncpy_s(temp, (atos(&this->item_sort->end->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_sort->end->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_sort->end->s, buffer), sizeof(buffer));				//	sec
+		return temp;
+	}
 };
 
 
 //	DIFF
 char* TimeItem::getDiffInit(char* temp)
 {
-	if (this != NULL)
-		return atos(this->item_init->diff, temp);
+	if (this != NULL) {
+		char buffer[] = "";
+		strncpy_s(temp, (atos(&this->item_init->diff->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_init->diff->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_init->diff->s, buffer), sizeof(buffer));				//	sec
+		return temp;
+	}
 };
 
 char* TimeItem::getDiffSort(char* temp)
 {
-	if (this != NULL)
-		return atos(this->item_sort->diff, temp);
+	if (this != NULL) {
+		char buffer[] = "";
+		strncpy_s(temp, (atos(&this->item_sort->diff->h, buffer) + ':'), (sizeof(buffer) + 1));	//	hour	/ size+1 ':'
+		strncat_s(temp, (atos(&this->item_sort->diff->m, buffer) + ':'), (sizeof(buffer) + 1));	//	min
+		strncat_s(temp, atos(&this->item_sort->diff->s, buffer), sizeof(buffer));				//	sec
+		return temp;
+	}
 };

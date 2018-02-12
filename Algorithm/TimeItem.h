@@ -1,5 +1,7 @@
 #pragma once
 #include "clocktime.h"
+#include <string>
+#include <cstdlib>
 
 typedef class TimeItem : public clocktime
 {
@@ -7,7 +9,7 @@ private:
 	clocktime* item_init;
 	clocktime* item_sort;
 protected:
-	virtual char* atos(clock*, char*);
+	virtual char* atos(double*, char*);
 	virtual void calcTime(char*, double*, int*);
 	virtual void calcDiff(double*, int*);
 	virtual void calcDiff(int*);
@@ -18,14 +20,14 @@ public:
 	void setInit();
 	clocktime* GetI();
 	void setEndInit();
-	char* getInit();
-	char* getEndInit();
+	char* getInit(char*);
+	char* getEndInit(char*);
 	// sort
 	void setSort();
 	clocktime* GetS();
 	void setEndSort();
-	char* getSort();
-	char* getEndSort();
+	char* getSort(char*);
+	char* getEndSort(char*);
 	// diff
 	char* getDiffInit(char*);
 	char* getDiffSort(char*);
