@@ -29,8 +29,10 @@ public:
 	int isEmpty();
 	void cleanALL(TNode*);
 	void add(int*);
-	int getLen();
+	void htot(TNode*);
+	int length(TNode*,int*);
 	TNode& operator[] (int);
 	TNode* getH();
 	TNode* getT();
+	TNode* get(TNode*,int*);
 } Queline;

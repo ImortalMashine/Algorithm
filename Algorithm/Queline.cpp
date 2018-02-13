@@ -8,9 +8,11 @@
 Queline::Queline(int* size)
 {
 	srand((unsigned int)100); // generator init
-	int R = 1 + rand() % 1000;
-		for (int i = 0; i < *size; i++)
-			this->add(&R);
+	int R = 0; 
+	for (int i = 0; i < *size; i++) {
+		R = 1 + rand() % 1000;
+		this->add(&R);
+	};
 };
 
 Queline::~Queline()
@@ -44,8 +46,11 @@ void Queline::cleanALL(TNode* p)
 
 TNode& Queline::operator[] (int index)
 {
-	//	if you return & you can set and get data from TNODE
-	return *(this->head);
+	int key = 0;
+	int* q = &index;
+	int high = this->length(this->head, &key);
+	if (this->isEmpty() && (index <= high))
+		return *(this->get(this->head,q));
 };
 
 void Queline::add(int* value)
@@ -66,7 +71,28 @@ void Queline::add(int* value)
 	}
 	else {
 		head = new TNode(value);	// init head min queline
-		tail = head;			//	min queline have (head = &ObjMemory and tail = &ObjMemory, so head == tail)
+		tail = head->next;			//	min queline have (head and next{tail}
+	}
+};
+
+void Queline::htot(TNode* obj)
+{
+	if (this != NULL && obj != NULL) {
+		if (this->isEmpty()) {
+			// head move
+			TNode* temp;
+			temp = this->head->next;
+			this->head = temp;
+
+			//obj to tail
+			obj->next = NULL;	// null next pointer
+			tail->next = obj;	// create new obj with put data but link -> NULL
+			tail = tail->next;	// new tail
+		}
+		else {
+			head = obj;			// init head min queline
+			tail = head->next;	//	min queline have (head and next{tail}
+		};
 	}
 };
 
@@ -78,6 +104,24 @@ TNode* Queline::getH()
 
 TNode* Queline::getT()
 {
-	if (this->isEmpty())
+	if (this->isEmpty() && this->tail != NULL)
 		return this->tail;
+};
+
+int Queline::length(TNode* p, int* i)
+{
+	if (p != NULL) {
+		*i++;
+		length(p->next, i);
+	};
+	return *i;
+};
+
+TNode* Queline::get(TNode* p, int* i)
+{
+	if ( p != NULL && *i != 0) {
+		*i--;
+		htot(get(p, i));
+	}
+	else return p;
 };
