@@ -44,13 +44,18 @@ void Queline::cleanALL(TNode* p)
 	else delete p;
 };
 
-TNode& Queline::operator[] (int index)
+TNode* Queline::operator[] (int index)
 {
-	int key = 0;
-	int* q = &index;
-	int high = this->length(this->head, &key);
-	if (this->isEmpty() && (index <= high))
-		return *(this->get(this->head,q));
+	if (this->isEmpty()) {
+		int i = 0;
+		int* q = &index;
+		int high = this->length(this->head, &i);
+
+		if (this->isEmpty() && (index <= high))
+			return this->get(this->head, q);
+		else return NULL;
+	}
+	else return NULL;
 };
 
 void Queline::add(int* value)
@@ -100,12 +105,14 @@ TNode* Queline::getH()
 {
 	if (this->isEmpty())
 		return this->head;
+	else return NULL;
 };
 
 TNode* Queline::getT()
 {
 	if (this->isEmpty() && this->tail != NULL)
 		return this->tail;
+	else return NULL;
 };
 
 int Queline::length(TNode* p, int* i)
@@ -124,4 +131,34 @@ TNode* Queline::get(TNode* p, int* i)
 		htot(get(p, i));
 	}
 	else return p;
+};
+
+void Queline::shell()
+{
+	if (this->isEmpty()) {
+		int i, j, k;
+		i = j = k = 0;
+		TNode* temp;
+		int size = this->length(this->head, &i);
+		// Gap 'i' between index of the element to be compared, initially lenght/2.
+		for (i = size / 2; i > 0; i = i / 2)
+		{
+			for (j = i; j < size; j++)
+			{
+				for (k = j - i; k >= 0; k = k - i)
+				{
+					// If value at higher index is greater, then break the loop.
+					if ( this->operator[](k + i)->operator>= (this->operator[](k)) )
+						break;
+					// Switch the values otherwise.
+					else
+					{
+						temp->operator= ( this->operator[](k) );
+						this->operator[](k)->operator= ( this->operator[](k + i) );
+						this->operator[](k + i)->operator= ( temp );
+					}
+				}
+			}
+		}
+	}
 };

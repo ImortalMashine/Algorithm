@@ -2,20 +2,7 @@
 #include <cstdlib>
 #include <chrono>
 #include <ctime>
-
-typedef struct TNode
-{
-	int data;
-	TNode* next;
-	TNode() {
-		data = 0;
-		next = NULL;
-	};
-	TNode(int*) {
-		data = 0;
-		next = NULL;
-	};
-} TNode;
+#include "TNODE.h"
 
 typedef class Queline : public TNode
 {
@@ -25,13 +12,13 @@ private:
 public:
 	Queline(int*);
 	~Queline();
-	void sortSHELL();
 	int isEmpty();
 	void cleanALL(TNode*);
 	void add(int*);
 	void htot(TNode*);
 	int length(TNode*,int*);
-	TNode& operator[] (int);
+	void shell();
+	TNode* operator[] (int);
 	TNode* getH();
 	TNode* getT();
 	TNode* get(TNode*,int*);
