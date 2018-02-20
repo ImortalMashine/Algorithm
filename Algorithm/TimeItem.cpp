@@ -50,6 +50,9 @@ TimeItem::TimeItem(int* N, bool useSort) : Queline(N)
 
 TimeItem::~TimeItem()
 {
+	item_init->~clocktime();
+	item_sort->~clocktime();
+	// after item_name -> NULL
 };
 
 //

@@ -19,6 +19,9 @@ TimerTake::TimerTake(int N, int T, bool useSort)
 
 TimerTake::~TimerTake()
 {
+	for (int i = 0; i < size; i++)
+		list[i]->~TimeItem();
+	// after list -> NULL
 };
 
 //

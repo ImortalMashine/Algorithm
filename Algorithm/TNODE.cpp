@@ -12,6 +12,13 @@ TNode::TNode(int* value)
 	next = NULL;
 };
 
+TNode::~TNode()
+{
+	this->next = NULL;
+	this->data = NULL;
+	delete this;
+};
+
 bool TNode::operator>=(TNode* arg)
 { 
 	if (this->data >= arg->data)

@@ -4,7 +4,10 @@
 typedef class Session
 {
 private:
-	TimerTake * data;
+	bool useSort;
+	int N;
+	int T;
+	TimerTake* data;
 public:
 	Session();
 	virtual ~Session();
