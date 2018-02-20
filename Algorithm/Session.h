@@ -1,7 +1,7 @@
 #pragma once
 #include "TimerTake.h"
 
-typedef class Session : public TimerTake
+typedef class Session
 {
 private:
 	TimerTake * data;
