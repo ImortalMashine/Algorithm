@@ -5,9 +5,9 @@
 typedef class clock
 {
 public:
-	double h;
-	double m;
-	double s;
+	int h;
+	int m;
+	int s;
 	clock();
 	void setTime(double*);
 	clock* operator- (clock*);
