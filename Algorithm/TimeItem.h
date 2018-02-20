@@ -4,6 +4,10 @@
 #include <string>
 #include <cstdlib>
 
+/*
+	Use double biggest common type (input arg)
+*/
+
 typedef class TimeItem : public clocktime, Queline
 {
 private:
@@ -11,8 +15,8 @@ private:
 	clocktime* item_sort;
 
 protected:
-	virtual char* atos(double*, char*);
-	virtual void calcTime(char, double*, bool);
+	virtual char* atos(int*, char*);
+	virtual void calcTime(bool, double*, bool);
 	virtual void calcDiff(double*, bool);
 	virtual void calcDiff(bool);
 public:
@@ -22,15 +26,15 @@ public:
 	void setInit(double*);
 	clocktime* GetI();
 	void setEndInit(double*);
-	char* getInit(char*);
-	char* getEndInit(char*);
+	void b_inittoline(char*);
+	void e_inittoline(char*);
 	// sort
 	void setSort(double*);
 	clocktime* GetS();
 	void setEndSort(double*);
-	char* getSort(char*);
-	char* getEndSort(char*);
+	void b_sorttoline(char*);
+	void e_sorttoline(char*);
 	// diff
-	char* getDiffInit(char*);
-	char* getDiffSort(char*);
+	void idifftoline(char*);
+	void sdifftoline(char*);
 }TimeItem;
