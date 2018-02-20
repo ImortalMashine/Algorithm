@@ -1,7 +1,7 @@
 #pragma once
 #include "TimeItem.h"
 
-typedef class TimerTake : public TimeItem
+typedef class TimerTake
 {
 private:
 	char* timenow;
