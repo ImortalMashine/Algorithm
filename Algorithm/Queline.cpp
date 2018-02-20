@@ -135,10 +135,12 @@ TNode* Queline::get(TNode* p, int* i)
 
 void Queline::shell()
 {
-	if (this->isEmpty()) {
+	int key; // for length
+	if ( this->isEmpty() && this->length(this->head, &key) > 1 ) 
+	{
 		int i, j, k;
 		i = j = k = 0;
-		TNode* temp;
+		TNode* temp = new TNode();
 		int size = this->length(this->head, &i);
 		// Gap 'i' between index of the element to be compared, initially lenght/2.
 		for (i = size / 2; i > 0; i = i / 2)
@@ -160,5 +162,6 @@ void Queline::shell()
 				}
 			}
 		}
+		temp->~TNode(); // delete obj
 	}
 };
