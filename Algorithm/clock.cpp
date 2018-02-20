@@ -26,7 +26,7 @@ void clock::setTime(double* value)
 
 	if (value != NULL) {
 		// value = second
-		int temp = *value;
+		int temp = (int)*value;
 		this->h = temp / 3600;
 		this->m = abs( (this->h * 3600) - temp ) / 60;
 		this->s = abs( ((this->h * 3600) + (this->m * 60)) - temp );
