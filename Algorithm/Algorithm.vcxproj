@@ -143,6 +143,7 @@
     <ClCompile Include="tableform.cpp" />
     <ClCompile Include="TimeItem.cpp" />
     <ClCompile Include="TimerTake.cpp" />
+    <ClCompile Include="TNODE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clock.h" />
@@ -160,6 +161,7 @@
     </ClInclude>
     <ClInclude Include="TimeItem.h" />
     <ClInclude Include="TimerTake.h" />
+    <ClInclude Include="TNODE.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="infoform.resx">

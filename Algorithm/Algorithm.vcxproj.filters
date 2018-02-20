@@ -78,6 +78,9 @@
     <ClCompile Include="mainform.cpp">
       <Filter>Форма\Main</Filter>
     </ClCompile>
+    <ClCompile Include="TNODE.cpp">
+      <Filter>Задача\Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainform.h">
@@ -106,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="Session.h">
       <Filter>Библиотека\Сеанс\Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="TNODE.h">
+      <Filter>Задача\Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
