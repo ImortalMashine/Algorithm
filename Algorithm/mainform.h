@@ -54,7 +54,7 @@ namespace Algorithm {
 
 	private: System::Windows::Forms::CheckBox^  actSort;
 
-	private: System::Windows::Forms::CheckBox^  actRandom;
+
 	private: System::Windows::Forms::Label^  tagN;
 	private: System::Windows::Forms::GroupBox^  progressbox;
 
@@ -126,9 +126,6 @@ namespace Algorithm {
 		{
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(mainform::typeid));
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->menutoolbar = (gcnew System::Windows::Forms::ToolStrip());
 			this->doInfo = (gcnew System::Windows::Forms::ToolStripButton());
 			this->initbox = (gcnew System::Windows::Forms::GroupBox());
@@ -139,7 +136,6 @@ namespace Algorithm {
 			this->doStart = (gcnew System::Windows::Forms::Button());
 			this->sizeMax = (gcnew System::Windows::Forms::TextBox());
 			this->actSort = (gcnew System::Windows::Forms::CheckBox());
-			this->actRandom = (gcnew System::Windows::Forms::CheckBox());
 			this->tagN = (gcnew System::Windows::Forms::Label());
 			this->progressbox = (gcnew System::Windows::Forms::GroupBox());
 			this->doSave = (gcnew System::Windows::Forms::Button());
@@ -198,7 +194,6 @@ namespace Algorithm {
 			this->initbox->Controls->Add(this->doStart);
 			this->initbox->Controls->Add(this->sizeMax);
 			this->initbox->Controls->Add(this->actSort);
-			this->initbox->Controls->Add(this->actRandom);
 			this->initbox->Controls->Add(this->tagN);
 			this->initbox->Font = (gcnew System::Drawing::Font(L"Perpetua", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -272,23 +267,12 @@ namespace Algorithm {
 			// actSort
 			// 
 			this->actSort->AutoSize = true;
-			this->actSort->Location = System::Drawing::Point(127, 109);
+			this->actSort->Location = System::Drawing::Point(86, 109);
 			this->actSort->Name = L"actSort";
 			this->actSort->Size = System::Drawing::Size(84, 24);
 			this->actSort->TabIndex = 2;
 			this->actSort->Text = L"Use Sort";
 			this->actSort->UseVisualStyleBackColor = true;
-			// 
-			// actRandom
-			// 
-			this->actRandom->AutoSize = true;
-			this->actRandom->Enabled = false;
-			this->actRandom->Location = System::Drawing::Point(9, 109);
-			this->actRandom->Name = L"actRandom";
-			this->actRandom->Size = System::Drawing::Size(110, 24);
-			this->actRandom->TabIndex = 1;
-			this->actRandom->Text = L"Use Random";
-			this->actRandom->UseVisualStyleBackColor = true;
 			// 
 			// tagN
 			// 
@@ -406,26 +390,8 @@ namespace Algorithm {
 			chartArea1->BackColor = System::Drawing::SystemColors::ControlLight;
 			chartArea1->Name = L"ChartArea1";
 			this->graphDesk->ChartAreas->Add(chartArea1);
-			legend1->BackColor = System::Drawing::SystemColors::ControlLight;
-			legend1->Font = (gcnew System::Drawing::Font(L"Perpetua", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			legend1->IsTextAutoFit = false;
-			legend1->Name = L"infoGraph";
-			legend1->TitleFont = (gcnew System::Drawing::Font(L"Perpetua", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->graphDesk->Legends->Add(legend1);
 			this->graphDesk->Location = System::Drawing::Point(359, 41);
 			this->graphDesk->Name = L"graphDesk";
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series1->Legend = L"infoGraph";
-			series1->Name = L"Initilize";
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series2->Legend = L"infoGraph";
-			series2->Name = L"Sorting";
-			this->graphDesk->Series->Add(series1);
-			this->graphDesk->Series->Add(series2);
 			this->graphDesk->Size = System::Drawing::Size(627, 356);
 			this->graphDesk->TabIndex = 3;
 			this->graphDesk->Text = L"chart1";
